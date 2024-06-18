@@ -6,7 +6,8 @@
     "start": "npx expo start",
     "android": "npx expo run:android",
     "ios": "npx expo run:ios",
-    "prebuild": "npx expo prebuild --platform ios"
+    "prebuild": "npx expo prebuild --platform ios",
+    "doctor": "npx expo-doctor"
   },
   "dependencies": {
     "expo": "~51.0.14",
