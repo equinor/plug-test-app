@@ -1,20 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { EDSProvider } from '@equinor/mad-components';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useColorScheme } from './hooks/useColorScheme';
+import { Navigation } from './navigation';
+import { getEDSDensity } from './utils/getEDSDensity';
 
 export default function App() {
+  const colorScheme = useColorScheme();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <EDSProvider colorScheme={colorScheme} density={getEDSDensity()}>
+        <Navigation colorScheme={colorScheme} />
+      </EDSProvider>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
