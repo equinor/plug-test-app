@@ -119,5 +119,18 @@ jobs:
                 code-sign-certificate-passphrase: ${{ secrets.P12PASSWORD }}
                 code-sign-identity: ${{env.CODE_SIGN_IDENTITY}}
 
+           - name: Xcode Archive Build
+             run: |  
+              /usr/bin/xcodebuild archive -workspace ios/attenuationapp.xcworkspace -scheme attenuationapp -destination 'generic/platform=iOS' -archivePath build/attenuationapp.xcarchive CODE_SIGN_STYLE="Manual" CODE_SIGN_IDENTITY="${{env.CODE_SIGN_IDENTITY}}" PROVISIONING_PROFILE="${{env.UUID}}"
+          
+           - name: Export IPA
+             run: |
+               /usr/bin/xcodebuild -exportArchive -archivePath build/attenuationapp.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath build    
 
+           - name: Upload IPA Artifact
+             uses: actions/upload-artifact@v2
+             with:
+               name: Attenuationapp
+               path: build/attenuationapp.ipa
+               
               
