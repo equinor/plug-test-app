@@ -111,7 +111,7 @@ jobs:
           
            - name: Prebuild expo project
              run: |
-               expo prebuild --platform ios
+               npm run prebuild
 
            - name: Replace app name to environment app name
              run: |
