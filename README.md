@@ -1,4 +1,4 @@
-# plug-test-app (placeholder name)
+# Attenuation app
 
 ## Development
 
