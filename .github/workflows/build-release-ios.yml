@@ -96,15 +96,8 @@ jobs:
              with: 
                filename: 'package.json'
                prefix: 'PACKAGEJSON'
-          
-           
-           - name: Set settings.json as environment variables
-             uses: antifree/json-to-variables@v1.0.1
-             with: 
-               filename: 'settings.json'
-               prefix: 'SETTINGS'
-
-          
+                   
+                   
            - name: Prebuild expo project
              run: |
                npm run prebuild
