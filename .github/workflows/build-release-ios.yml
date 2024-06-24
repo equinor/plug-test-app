@@ -108,22 +108,12 @@ jobs:
                filename: 'settings.json'
                prefix: 'SETTINGS'
 
-           - name: Patch app.json
-             uses: onlyutkarsh/patch-files-action@v1.0.1
-             with: 
-               fail-if-no-files-patched: true
-               fail-if-error: true
-               files: ./app.json
-               patch-syntax: |
-                 = /expo/ios/bundleIdentifier => "${{ vars.BUNDLE_IDENTIFIER }}"
-                 = /expo/ios/buildNumber => "${{ env.BUILD_NUMBER }}"
-            
-
+          
            - name: Prebuild expo project
              run: |
                expo prebuild --platform ios
 
            - name: Replace app name to environment app name
              run: |
-               /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName ${{ vars.APP_NAME }}" ios/autenuation/Info.plist
+               /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName ${{ vars.APP_NAME }}" ios/attenuation/Info.plist
               
