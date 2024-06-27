@@ -16,19 +16,22 @@ export const VolumeButton = <V extends Variant>({
   onPress,
 }: VolumeButtonProps<V>) => {
   const styles = useStyles(volumeButtonStyles, variant);
-  
+
   const haptics = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
   };
 
-  const pressedInStyle = {...styles.pressable, backgroundColor: colors.interactive_primary_light_hover}
-  
+  const pressedInStyle = {
+    ...styles.pressable,
+    backgroundColor: colors.interactive_primary_light_hover,
+  };
+
   return (
     <View style={styles.container}>
       <Pressable
         onPressIn={haptics}
         onPress={() => onPress(variant)}
-        style={({pressed}) => pressed ? pressedInStyle : styles.pressable}
+        style={({ pressed }) => (pressed ? pressedInStyle : styles.pressable)}
       >
         <View style={styles.symbolContainer}>
           <VolumeSymbol variant={variant} />
