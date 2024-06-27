@@ -10,7 +10,7 @@ const HEIGHT = 214;
 
 export type VolumeButtonProps<V extends Variant> = {
   variant: V;
-  onPress: (v: V) => void;
+  onPress: (variant: V) => void;
 };
 export const VolumeButton = <V extends Variant>({
   variant,
