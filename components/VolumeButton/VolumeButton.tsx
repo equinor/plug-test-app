@@ -2,10 +2,8 @@ import { EDSStyleSheet, useStyles } from "@equinor/mad-components";
 import { colors } from "@equinor/mad-components/dist/styling";
 import * as Haptics from "expo-haptics";
 import { Pressable, View } from "react-native";
-import { TouchableHighlight } from "react-native-gesture-handler";
 import { VolumeSymbol } from "./VolumeSymbol";
 import { Variant } from "./types";
-import { useMemo } from "react";
 
 const HEIGHT = 214;
 
