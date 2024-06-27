@@ -1,10 +1,13 @@
-import { EDSStyleSheet, Typography, useStyles } from "@equinor/mad-components";
+import { Button, EDSStyleSheet, Typography, useStyles } from "@equinor/mad-components";
 import { View } from "react-native";
+import { useAttenuationAppNavigation } from "../navigation/useAttenuationAppNavigation";
 
 export const HelloWorld = () => {
     const styles = useStyles(themeStyles);
+    const { navigate } =useAttenuationAppNavigation()
     return <View style={styles.container}>
         <Typography>Hello world!</Typography>
+        <Button title="Start testen" onPress={() => navigate("TestScreen")}/>
     </View>
 }
 
