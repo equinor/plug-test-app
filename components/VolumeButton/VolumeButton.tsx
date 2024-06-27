@@ -1,10 +1,11 @@
 import { EDSStyleSheet, useStyles } from "@equinor/mad-components";
 import { colors } from "@equinor/mad-components/dist/styling";
 import * as Haptics from "expo-haptics";
-import { View } from "react-native";
+import { Pressable, View } from "react-native";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import { VolumeSymbol } from "./VolumeSymbol";
 import { Variant } from "./types";
+import { useMemo } from "react";
 
 const HEIGHT = 214;
 
@@ -17,22 +18,24 @@ export const VolumeButton = <V extends Variant>({
   onPress,
 }: VolumeButtonProps<V>) => {
   const styles = useStyles(volumeButtonStyles, variant);
+  
   const haptics = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
   };
+
+  const pressedInStyle = {...styles.pressable, backgroundColor: colors.interactive_primary_light_hover}
+  
   return (
     <View style={styles.container}>
-      <TouchableHighlight
+      <Pressable
         onPressIn={haptics}
         onPress={() => onPress(variant)}
-        style={styles.pressable}
-        underlayColor={colors.interactive_primary_light_hover}
-        activeOpacity={1}
+        style={({pressed}) => pressed ? pressedInStyle : styles.pressable}
       >
         <View style={styles.symbolContainer}>
           <VolumeSymbol variant={variant} />
         </View>
-      </TouchableHighlight>
+      </Pressable>
     </View>
   );
 };
