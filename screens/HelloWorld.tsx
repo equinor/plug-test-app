@@ -1,11 +1,15 @@
 import { Button, EDSStyleSheet, Typography, useStyles } from "@equinor/mad-components";
 import { View } from "react-native";
 import { useAttenuationAppNavigation } from "../navigation/useAttenuationAppNavigation";
+import { VolumeButton } from "../components/VolumeButton/VolumeButton";
 
 export const HelloWorld = () => {
     const styles = useStyles(themeStyles);
     const { navigate } =useAttenuationAppNavigation()
     return <View style={styles.container}>
+        <VolumeButton variant="+" onPress={(v) => undefined} />
+        <View style={{height:16}} />
+        <VolumeButton variant="-" onPress={(v) => undefined} />
         <Typography>Hello world!</Typography>
         <Button title="Start testen" onPress={() => navigate("TestScreen")}/>
     </View>
