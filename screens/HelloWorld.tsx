@@ -1,9 +1,8 @@
 import { Button, EDSStyleSheet, Typography, useStyles } from "@equinor/mad-components";
 import { View } from "react-native";
-import { useAttenuationAppNavigation } from "../navigation/useAttenuationAppNavigation";
 import { VolumeButton } from "../components/VolumeButton/VolumeButton";
-import { ExitButton } from "../components/ExitButton/ExitButton";
 import { useDictionary } from "../language";
+import { useAttenuationAppNavigation } from "../navigation/useAttenuationAppNavigation";
 
 export const HelloWorld = () => {
     const styles = useStyles(themeStyles);

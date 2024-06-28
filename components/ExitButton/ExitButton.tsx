@@ -1,10 +1,9 @@
 import { Button, IconButtonProps, alert } from "@equinor/mad-components";
-import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { useDictionary } from "../../language";
-import { RootStackParamList } from "../../navigation/types";
+import { useAttenuationAppNavigation } from "../../navigation/useAttenuationAppNavigation";
 
 export const ExitButton = (props: Omit<IconButtonProps, "onPress" | "name" | "variant">) => {
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const navigation = useAttenuationAppNavigation();
   const dictionary = useDictionary();
   const onPress = () => {
     alert(
