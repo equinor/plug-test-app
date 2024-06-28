@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-    "Hello World": undefined;
+    "WelcomeScreen": undefined
     "TestScreen": undefined;
     "ResultScreen": undefined;
 }
