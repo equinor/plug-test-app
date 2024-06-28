@@ -1,6 +1,7 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from "react";
 import { Text } from "react-native";
 import { Ear } from "../types";
+import { useAttenuationAppNavigation } from "../navigation/useAttenuationAppNavigation";
 
 type TestPlanPage = {
     title: string,
@@ -59,9 +60,13 @@ export const TestPlanProvider = ({children}: TestPlanProviderProps) => {
     const [currentPageIndex, setCurrentPageIndex] = useState(0);
     const current = testPlan[currentPageIndex];
     const progress = (currentPageIndex + 1) / testPlan.length;
+    const { navigate } = useAttenuationAppNavigation()
+
     const navigateNext = () => {
         if (currentPageIndex < testPlan.length - 1) {
             setCurrentPageIndex(currentPageIndex => currentPageIndex + 1)
+        } else {
+            navigate("ResultScreen")
         }
     }
 
