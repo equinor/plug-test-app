@@ -1,11 +1,13 @@
-import { EDSStyleSheet, Typography, useStyles } from "@equinor/mad-components";
+import { Button, EDSStyleSheet, Typography, useStyles } from "@equinor/mad-components";
 import { View } from "react-native";
+import { useAttenuationAppNavigation } from "../navigation/useAttenuationAppNavigation";
 import { VolumeButton } from "../components/VolumeButton/VolumeButton";
 import { ExitButton } from "../components/ExitButton/ExitButton";
 import { useDictionary } from "../language";
 
 export const HelloWorld = () => {
     const styles = useStyles(themeStyles);
+    const { navigate } =useAttenuationAppNavigation()
     const dictionary = useDictionary();
     return <View style={styles.container}>
         <VolumeButton variant="+" onPress={(v) => undefined} />
@@ -13,6 +15,7 @@ export const HelloWorld = () => {
         <VolumeButton variant="-" onPress={(v) => undefined} />
         <ExitButton />
         <Typography>{dictionary.helloWorld}</Typography>
+        <Button title="Start testen" onPress={() => navigate("TestScreen")}/>
     </View>
 }
 
