@@ -1,7 +1,7 @@
 {
     "helloWorld": "Hallo, verden!",
     "exitDialog.title": "Er du sikker på at du vil avslutte testen?",
-    "exitDialog.description": "Hvis du avslutter testen, mister du all progressjon",
+    "exitDialog.description": "Hvis du avslutter testen, mister du all progresjon",
     "exitDialog.confirm": "Avslutt test",
     "exitDialog.cancel": "Jeg ombestemte meg"
 }

@@ -20,9 +20,7 @@ export const TestScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <LinearProgress value={progress} />
-      <View style={styles.exitButtonContainer}>
-        <ExitButton />
-      </View>
+        <ExitButton style={styles.exitButton} />
       <Typography variant="h2" color="primary" style={styles.title}>
         {title}
       </Typography>
@@ -40,7 +38,7 @@ const themeStyles = EDSStyleSheet.create((theme) => ({
     paddingHorizontal: theme.spacing.container.paddingHorizontal,
     paddingVertical: theme.spacing.container.paddingVertical,
   },
-  exitButtonContainer: { flexDirection: "row", justifyContent: "flex-end" },
+  exitButton: { alignSelf: "flex-end" },
   title: {
     textAlign: "center",
   },

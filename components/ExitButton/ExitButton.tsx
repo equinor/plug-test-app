@@ -1,8 +1,11 @@
 import { Button, IconButtonProps, alert } from "@equinor/mad-components";
 import { useDictionary } from "../../language";
 import { useAttenuationAppNavigation } from "../../navigation/useAttenuationAppNavigation";
+import { ViewProps } from "react-native";
 
-export const ExitButton = (props: Omit<IconButtonProps, "onPress" | "name" | "variant">) => {
+export type ExitButtonProps = Omit<IconButtonProps & ViewProps, "onPress" | "name" | "variant">
+
+export const ExitButton = (props: ExitButtonProps) => {
   const navigation = useAttenuationAppNavigation();
   const dictionary = useDictionary();
   const onPress = () => {
