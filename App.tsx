@@ -9,7 +9,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <EDSProvider colorScheme={colorScheme} density={getEDSDensity()}>
-        <Navigation colorScheme={colorScheme} />
+        <Navigation colorScheme={colorScheme}/>
       </EDSProvider>
     </SafeAreaProvider>
   );

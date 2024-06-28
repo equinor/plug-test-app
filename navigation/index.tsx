@@ -3,7 +3,10 @@ import {useToken} from "@equinor/mad-components"
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./types";
+import { TestScreen } from "../screens/TestScreen";
 import { HelloWorld } from "../screens/HelloWorld";
+import { ResultScreen } from "../screens/ResultScreen";
+import { TestPlanProvider } from "../contexts/TestPlanContext";
 
 export type NavigationProps = { colorScheme: ColorSchemeName }
 
@@ -23,7 +26,9 @@ export function Navigation({ colorScheme }: NavigationProps) {
                 },
             }}
         >
-            <RootNavigator />
+            <TestPlanProvider>
+                <RootNavigator />
+            </TestPlanProvider>
         </NavigationContainer>
     );
 }
@@ -31,7 +36,11 @@ export function Navigation({ colorScheme }: NavigationProps) {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
-    return <Stack.Navigator>
-        <Stack.Screen name="Hello World" component={HelloWorld}/>
-    </Stack.Navigator>
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Hello World" component={HelloWorld} options={{headerShown: false}}/>
+            <Stack.Screen name="TestScreen" component={TestScreen} options={{headerShown: false}}/>
+            <Stack.Screen name="ResultScreen" component={ResultScreen} options={{headerShown: false}}/>
+        </Stack.Navigator>
+    )
 }
