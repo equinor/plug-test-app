@@ -82,4 +82,4 @@ export const TestPlanProvider = ({children}: TestPlanProviderProps) => {
     )
 }
 
-export const useTestPlanContext = () => useContext(TestPlanContext);
+export const useTestPlan = () => useContext(TestPlanContext);

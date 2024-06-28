@@ -1,10 +1,10 @@
 import { Button, EDSStyleSheet, LinearProgress, Typography, useStyles } from "@equinor/mad-components";
-import { useTestPlanContext } from "../contexts/TestPlanContext";
+import { useTestPlan } from "../contexts/TestPlanContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export const TestScreen = () => {
     const styles = useStyles(themeStyles);
-    const {current: {title, Component}, navigateNext, progress} = useTestPlanContext()
+    const {current: {title, Component}, navigateNext, progress} = useTestPlan();
     return (
         <SafeAreaView style={styles.container}>
             <LinearProgress value={progress}/>
