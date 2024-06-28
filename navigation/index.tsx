@@ -32,6 +32,6 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
     return <Stack.Navigator>
-        <Stack.Screen name="Hello World" component={HelloWorld}/>
+        <Stack.Screen name="WelcomeScreen" component={HelloWorld}/>
     </Stack.Navigator>
 }

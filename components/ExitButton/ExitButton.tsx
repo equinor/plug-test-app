@@ -1,15 +1,18 @@
 import { Button, IconButtonProps, alert } from "@equinor/mad-components";
-import { useNavigation } from "@react-navigation/native";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { useDictionary } from "../../language";
+import { RootStackParamList } from "../../navigation/types";
 
 export const ExitButton = (props: Omit<IconButtonProps, "onPress" | "name" | "variant">) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const dictionary = useDictionary();
   const onPress = () => {
     alert(
-      "Are you sure you want to exit the test?",
-      "Exiting the test will erase all progess",
+      dictionary["exitDialog.title"],
+      dictionary["exitDialog.description"],
       [
-        { text: "Yes", onPress: () => navigation.navigate("Hello World"), style: "destructive" },
-        { text: "No", onPress: () => undefined, isPreferred: true, style: "cancel" },
+          { text: dictionary["exitDialog.cancel"], onPress: () => undefined, style: "cancel" },
+        { text: dictionary["exitDialog.confirm"], onPress: () => navigation.navigate("WelcomeScreen"), style: "destructive", isPreferred: true },
       ]
     );
   };

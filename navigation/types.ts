@@ -1,3 +1,3 @@
 export type RootStackParamList = {
-    "Hello World": undefined
+    "WelcomeScreen": undefined
 }
