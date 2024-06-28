@@ -13,7 +13,6 @@ export const HelloWorld = () => {
         <VolumeButton variant="+" onPress={(v) => undefined} />
         <View style={{height:16}} />
         <VolumeButton variant="-" onPress={(v) => undefined} />
-        <ExitButton />
         <Typography>{dictionary.helloWorld}</Typography>
         <Button title="Start testen" onPress={() => navigate("TestScreen")}/>
     </View>
