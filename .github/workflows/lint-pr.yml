@@ -39,3 +39,6 @@ jobs:
 
         - name: 🚦 Lint and fix
           run: npm run lint
+
+        - name: 🧪 Run tests
+          run: npm run test
