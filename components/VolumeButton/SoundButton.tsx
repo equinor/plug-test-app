@@ -34,7 +34,7 @@ const SoundButtonInner = (
   const onPressOut = () => setIsPressed(false);
 
   const haptics = () => {
-    void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
   };
 
   const finalOnPress = (variant: Variant) => {
