@@ -5,7 +5,6 @@ import { VolumeSymbol } from "./VolumeSymbol";
 import { BIG_ROUND_BUTTON_DIAMETER } from "./constants";
 import { Variant } from "./types";
 
-
 export type VolumeButtonProps<V extends Variant> = {
   variant: V;
   onPress?: (variant: V) => void;
@@ -29,18 +28,18 @@ export const VolumeButton = <V extends Variant>({
     backgroundColor: colors.interactive_primary_light_hover,
   };
 
-  const pressableStyle: React.ComponentProps<typeof Pressable>["style"] = ({ pressed }) => {
-    const isPressedFinalValue = isPressed === undefined ? pressed : isPressed
+  const pressableStyle: React.ComponentProps<typeof Pressable>["style"] = ({
+    pressed,
+  }) => {
+    const isPressedFinalValue = isPressed ?? pressed;
     if (isPressedFinalValue) return pressedInStyle;
-    return styles.pressable
-  }
+    return styles.pressable;
+  };
 
   return (
     <View style={styles.container}>
       <Pressable
-        onPressIn={
-          onPressIn
-        }
+        onPressIn={onPressIn}
         onPressOut={onPressOut}
         onPress={() => onPress?.(variant)}
         style={pressableStyle}

@@ -8,7 +8,7 @@
     "ios": "npx expo run:ios",
     "prebuild": "npx expo prebuild --platform ios",
     "doctor": "npx expo-doctor",
-    "lint": "npx eslint"
+    "lint": "npx eslint \"**/*.{js,ts,tsx}\" --fix"
   },
   "dependencies": {
     "@equinor/mad-components": "^0.14.10",
@@ -37,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "eslint": "^8.57.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.34.2",
     "globals": "^15.6.0",
     "typescript": "^5.1.3"

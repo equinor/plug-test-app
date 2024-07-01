@@ -5,7 +5,7 @@ import { SoundButtonRef, SoundButtonType } from "./types";
 export const useSoundButtonHandle = (
   ref: SoundButtonRef,
   soundButtonType: SoundButtonType,
-  setSoundButtonType: Dispatch<SetStateAction<SoundButtonType>>
+  setSoundButtonType: Dispatch<SetStateAction<SoundButtonType>>,
 ) => {
   return useImperativeHandle(
     ref,
@@ -19,6 +19,6 @@ export const useSoundButtonHandle = (
         setSoundButtonType(type);
       },
     }),
-    [soundButtonType, setSoundButtonType]
+    [soundButtonType, setSoundButtonType],
   );
 };

@@ -11,6 +11,7 @@ export const ResultScreen = () => {
     setResult("left", "withoutPlugs", 40);
     setResult("right", "withPlugs", 60);
     setResult("right", "withoutPlugs", 80);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- We only want this to run once
   }, []);
   return (
     <SafeAreaView style={styles.container}>

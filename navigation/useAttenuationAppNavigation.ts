@@ -6,4 +6,5 @@ import { RootStackParamList } from "./types";
 export const useAttenuationAppNavigation = () =>
   useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-export const useAttenuationAppRoute = () => useRoute<RouteProp<RootStackParamList>>();
+export const useAttenuationAppRoute = () =>
+  useRoute<RouteProp<RootStackParamList>>();
