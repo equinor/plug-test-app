@@ -31,7 +31,7 @@ export const VolumeButton = <V extends Variant>({
   const pressableStyle: React.ComponentProps<typeof Pressable>["style"] = ({
     pressed,
   }) => {
-    const isPressedFinalValue = isPressed === undefined ? pressed : isPressed;
+    const isPressedFinalValue = isPressed ?? pressed;
     if (isPressedFinalValue) return pressedInStyle;
     return styles.pressable;
   };
