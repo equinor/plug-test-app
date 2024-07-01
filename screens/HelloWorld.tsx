@@ -1,12 +1,16 @@
 import {
-    Button,
-    EDSStyleSheet,
-    Typography,
-    useStyles,
+  Button,
+  EDSStyleSheet,
+  Typography,
+  useStyles,
 } from "@equinor/mad-components";
-import { useState } from "react";
-import { LayoutAnimation, View } from "react-native";
-import { SoundButton } from "../components/VolumeButton/SoundButton";
+import { useRef } from "react";
+import { View } from "react-native";
+import {
+  SoundButton,
+  SoundButtonProps,
+} from "../components/VolumeButton/SoundButton";
+import { SoundButtonControls } from "../components/VolumeButton/types";
 import { useDictionary } from "../language";
 import { useAttenuationAppNavigation } from "../navigation/useAttenuationAppNavigation";
 
@@ -14,27 +18,19 @@ export const HelloWorld = () => {
   const styles = useStyles(themeStyles);
   const { navigate } = useAttenuationAppNavigation();
   const dictionary = useDictionary();
-  const [buttonType, setButtonType] = useState<"play" | "volume">("play");
-  const onPress = () => {
-    if (buttonType === "play") {
-      LayoutAnimation.configureNext({
-        ...LayoutAnimation.Presets.easeInEaseOut,
-        duration: 150,
-      });
-      setButtonType("volume");
+  const soundButtonRef = useRef<SoundButtonControls>(null);
+  const onPress: SoundButtonProps["onPress"] = (e) => {
+    if (e.type === "play") {
+      soundButtonRef.current?.setSoundButtonType("volume");
     } else {
-      LayoutAnimation.configureNext({
-        ...LayoutAnimation.Presets.easeInEaseOut,
-        duration: 150,
-      });
-      setButtonType("play");
+      soundButtonRef.current?.setSoundButtonType("play");
     }
   };
 
   return (
     <View style={styles.container}>
       <Typography>{dictionary.helloWorld}</Typography>
-      <SoundButton type={buttonType} onPress={onPress} />
+      <SoundButton ref={soundButtonRef} onPress={onPress} />
       <Button title="Start testen" onPress={() => navigate("TestScreen")} />
     </View>
   );
