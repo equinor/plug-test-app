@@ -1,5 +1,5 @@
 import { ColorSchemeName } from "react-native";
-import {useToken} from "@equinor/mad-components"
+import { useToken } from "@equinor/mad-components";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./types";
@@ -7,40 +7,55 @@ import { TestScreen } from "../screens/TestScreen";
 import { HelloWorld } from "../screens/HelloWorld";
 import { ResultScreen } from "../screens/ResultScreen";
 import { TestPlanProvider } from "../contexts/TestPlanContext";
+import { ResultsProvider } from "../contexts/ResultsContext";
 
-export type NavigationProps = { colorScheme: ColorSchemeName }
+export type NavigationProps = { colorScheme: ColorSchemeName };
 
 export function Navigation({ colorScheme }: NavigationProps) {
-    const token = useToken();
-    return (
-        <NavigationContainer
-            theme={{
-                dark: colorScheme === "dark",
-                colors: {
-                    primary: token.colors.interactive.primary,
-                    background: token.colors.container.background,
-                    card: token.colors.container.default,
-                    text: token.colors.text.primary,
-                    border: token.colors.border.medium,
-                    notification: token.colors.interactive.primary,
-                },
-            }}
-        >
-            <TestPlanProvider>
-                <RootNavigator />
-            </TestPlanProvider>
-        </NavigationContainer>
-    );
+  const token = useToken();
+  return (
+    <NavigationContainer
+      theme={{
+        dark: colorScheme === "dark",
+        colors: {
+          primary: token.colors.interactive.primary,
+          background: token.colors.container.background,
+          card: token.colors.container.default,
+          text: token.colors.text.primary,
+          border: token.colors.border.medium,
+          notification: token.colors.interactive.primary,
+        },
+      }}
+    >
+      <ResultsProvider>
+        <TestPlanProvider>
+          <RootNavigator />
+        </TestPlanProvider>
+      </ResultsProvider>
+    </NavigationContainer>
+  );
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
-    return (
-        <Stack.Navigator>
-            <Stack.Screen name="WelcomeScreen" component={HelloWorld} options={{headerShown: false}}/>
-            <Stack.Screen name="TestScreen" component={TestScreen} options={{headerShown: false}}/>
-            <Stack.Screen name="ResultScreen" component={ResultScreen} options={{headerShown: false}}/>
-        </Stack.Navigator>
-    )
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="WelcomeScreen"
+        component={HelloWorld}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="TestScreen"
+        component={TestScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ResultScreen"
+        component={ResultScreen}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
 }
