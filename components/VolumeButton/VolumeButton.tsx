@@ -18,7 +18,7 @@ export const VolumeButton = <V extends Variant>({
   const styles = useStyles(volumeButtonStyles, variant);
 
   const haptics = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
+    void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
   };
 
   const pressedInStyle = {

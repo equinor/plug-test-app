@@ -3,7 +3,10 @@ import { useDictionary } from "../../language";
 import { useAttenuationAppNavigation } from "../../navigation/useAttenuationAppNavigation";
 import { ViewProps } from "react-native";
 
-export type ExitButtonProps = Omit<IconButtonProps & ViewProps, "onPress" | "name" | "variant">
+export type ExitButtonProps = Omit<
+  IconButtonProps & ViewProps,
+  "onPress" | "name" | "variant"
+>;
 
 export const ExitButton = (props: ExitButtonProps) => {
   const navigation = useAttenuationAppNavigation();
@@ -13,10 +16,21 @@ export const ExitButton = (props: ExitButtonProps) => {
       dictionary["exitDialog.title"],
       dictionary["exitDialog.description"],
       [
-          { text: dictionary["exitDialog.cancel"], onPress: () => undefined, style: "cancel" },
-        { text: dictionary["exitDialog.confirm"], onPress: () => navigation.navigate("WelcomeScreen"), style: "destructive", isPreferred: true },
-      ]
+        {
+          text: dictionary["exitDialog.cancel"],
+          onPress: () => undefined,
+          style: "cancel",
+        },
+        {
+          text: dictionary["exitDialog.confirm"],
+          onPress: () => navigation.navigate("WelcomeScreen"),
+          style: "destructive",
+          isPreferred: true,
+        },
+      ],
     );
   };
-  return <Button.Icon variant="ghost" name="close" onPress={onPress} {...props} />;
+  return (
+    <Button.Icon variant="ghost" name="close" onPress={onPress} {...props} />
+  );
 };

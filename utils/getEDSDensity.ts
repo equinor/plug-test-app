@@ -1,9 +1,9 @@
-import {EDSProvider} from '@equinor/mad-components'
-import { ComponentProps } from 'react';
+import { EDSProvider } from "@equinor/mad-components";
+import { ComponentProps } from "react";
 
-type Density = ComponentProps<(typeof EDSProvider)>["density"]
+type Density = ComponentProps<typeof EDSProvider>["density"];
 
 export const getEDSDensity = (): Density => {
-    //TODO calculate which density to use
-    return "phone";
-}
+  //TODO calculate which density to use
+  return "phone";
+};

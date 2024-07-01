@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["@equinor/mad"],
+  extends: ["@equinor/mad", "plugin:prettier/recommended"],
   parser: "@typescript-eslint/parser",
   root: true,
   parserOptions: {

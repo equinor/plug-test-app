@@ -5,7 +5,6 @@ import {
   Typography,
   useStyles,
 } from "@equinor/mad-components";
-import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ExitButton } from "../components/ExitButton/ExitButton";
 import { useTestPlan } from "../contexts/TestPlanContext";
@@ -20,7 +19,7 @@ export const TestScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <LinearProgress value={progress} />
-        <ExitButton style={styles.exitButton} />
+      <ExitButton style={styles.exitButton} />
       <Typography variant="h2" color="primary" style={styles.title}>
         {title}
       </Typography>
